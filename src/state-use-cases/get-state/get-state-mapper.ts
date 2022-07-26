@@ -1,8 +1,9 @@
-import { State } from "libs/database/src/state/state.entity";
+import { State } from "libs/database/src/master-aggregate/state/state.entity";
 import { AutomapperProfile, InjectMapper } from "@automapper/nestjs";
 import { Mapper } from "@automapper/types";
 import { Injectable } from "@nestjs/common";
 import { GetStateResponse } from "./get-state-response";
+import { mapFrom } from "@automapper/core";
 
 @Injectable()
 export class GetStateMapper extends AutomapperProfile {
@@ -13,6 +14,7 @@ export class GetStateMapper extends AutomapperProfile {
   mapProfile() {
     return (mapper: Mapper) => {
       mapper.createMap(State,GetStateResponse)
+      .forMember((x) => x.countryName,mapFrom((x)=>x.country.name))
     };
   }
 }

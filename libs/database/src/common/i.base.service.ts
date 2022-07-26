@@ -22,5 +22,10 @@ export interface IBaseService<T>{
         queryBuilder:SelectQueryBuilder<T>,
         pageNumber:number,
         pageSize:number
-    ):Promise<PagedModel<T>>
+    ):Promise<PagedModel<T>>;
+    pagedRaw(
+        queryBuilder: SelectQueryBuilder<T>,
+        pageNumber: number,
+        pageSize: number
+      ): Promise<PagedModel<any>>;
 }

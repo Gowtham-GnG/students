@@ -2,9 +2,9 @@ import { InjectMapper } from "@automapper/nestjs";
 import { Mapper } from "@automapper/types";
 import { Controller, Get, HttpCode, HttpException, HttpStatus, Inject, Param } from "@nestjs/common";
 import { ApiResponse, ApiTags } from "@nestjs/swagger";
-import { IStateService } from "libs/database/src/state/i.state.service";
+import { IStateService } from "libs/database/src/master-aggregate/state/i.state.service";
 import { GetStateResponse } from "./get-state-response";
-import { State } from "libs/database/src/state/state.entity";
+import { State } from "libs/database/src/master-aggregate/state/state.entity";
 
 @ApiTags('states')
 @Controller('states')

@@ -1,6 +1,6 @@
 import { Controller, Delete, HttpCode, HttpException, HttpStatus, Inject, Param } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
-import { IStateService } from "libs/database/src/state/i.state.service";
+import { IStateService } from "libs/database/src/master-aggregate/state/i.state.service";
 
 @ApiTags('states')
 @Controller('states')

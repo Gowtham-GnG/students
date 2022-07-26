@@ -3,8 +3,8 @@ import { Mapper } from "@automapper/types";
 import { Body, Controller, HttpCode, HttpException, HttpStatus, Inject, Param, Put } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { request } from "http";
-import { IStateService } from "libs/database/src/state/i.state.service";
-import { State } from "libs/database/src/state/state.entity";
+import { IStateService } from "libs/database/src/master-aggregate/state/i.state.service";
+import { State } from "libs/database/src/master-aggregate/state/state.entity";
 import { MappedColumnTypes } from "typeorm/driver/types/MappedColumnTypes";
 import { UpdateStateRequest } from "./update-state-request";
 

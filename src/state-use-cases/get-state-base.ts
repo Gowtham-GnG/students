@@ -7,5 +7,9 @@ export class GetStateBase extends StateBase{
     @AutoMap()
     @ApiProperty()
     id:string;
+
+    // @AutoMap()
+    // @ApiProperty()
+    // languageid:string;
     
 }

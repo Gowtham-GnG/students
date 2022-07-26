@@ -9,11 +9,14 @@ export const dataBaseProvider = TypeOrmModule.forRootAsync({
     keepConnectionAlive: true,
     entities: [...entities],
     type: 'mysql',
-    host: configService.get('DB_HOST'),
+    host: 'localhost',
     port: 3306,
-    username: configService.get('DB_USERNAME'),
-    password: configService.get('DB_PASSWORD'),
-    database: configService.get('DB_DATABASE'),
+    // username: configService.get('DB_USERNAME'),
+    // password: configService.get('DB_PASSWORD'),
+    // database: configService.get('DB_DATABASE'),
+    username: 'root',
+    password: 'test@123',
+    database: 'nestjs',
     synchronize: true
     };
   },

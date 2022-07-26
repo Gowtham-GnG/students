@@ -2,11 +2,11 @@ import { InjectMapper } from "@automapper/nestjs";
 import { Body, Controller, HttpCode, HttpStatus, Inject, Post } from "@nestjs/common";
 import { ApiResponse, ApiTags } from "@nestjs/swagger";
 import { Mapper } from "@automapper/types";
-import { IStateService } from "libs/database/src/state/i.state.service";
+import { IStateService } from "libs/database/src/master-aggregate/state/i.state.service";
 import { CreateStateResponse } from "./create-state-response";
 import { request } from "http";
 import { CreateStateRequest } from "./create-state-request";
-import { State } from "libs/database/src/state/state.entity";
+import { State } from "libs/database/src/master-aggregate/state/state.entity";
 
 @ApiTags('states')
 @Controller('states')

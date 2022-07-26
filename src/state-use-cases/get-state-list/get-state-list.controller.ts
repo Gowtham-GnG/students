@@ -1,13 +1,12 @@
 import { InjectMapper } from "@automapper/nestjs";
 import { Controller, Get, HttpStatus, Inject, Query } from "@nestjs/common";
 import { ApiResponse, ApiTags } from "@nestjs/swagger";
-import { IStateService } from "libs/database/src/state/i.state.service";
-import { GetStateResponse } from "../get-state/get-state-response";
+import { IStateService } from "libs/database/src/master-aggregate/state/i.state.service";
 import { Mapper } from "@automapper/types";
-import { StatePagedModel } from "libs/database/src/state/state-model";
+import { StatePagedModel } from "libs/database/src/master-aggregate/state/state-model";
 import { GetStateListtResponse } from "./get-state-list-response";
 import { GetStateListRequest } from "./get-state-list-request";
-
+import { CountryFilter } from "libs/database/src/master-aggregate/state/state-filter";
 
 @ApiTags('states')
 @Controller('states')
@@ -27,12 +26,18 @@ export class GetStateListController{
     async execute(@Query() request:GetStateListRequest)
     : Promise<Partial<GetStateListtResponse>>
     {
+      const filter:CountryFilter={
+        countryId:request.countryId
+      }
+
       const result = await this.stateService.getStateList(
         request.pageNumber,
         request.pageSize,
+        filter
       );
       
       const response = this.mapper.map(result,GetStateListtResponse,StatePagedModel)
+
       return response
     }
 }

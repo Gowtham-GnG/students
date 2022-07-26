@@ -82,7 +82,7 @@ implements IBaseService<TEntity>{
         const [items,itemsCount] = await queryBuilder
         .skip((pageNumber-1)*pageSize)
         .take(pageSize)
-        .getManyAndCount()
+        .getManyAndCount();
 
         const pagedResponse = new PagedModel<TEntity>({
           pageNumber,
@@ -90,7 +90,28 @@ implements IBaseService<TEntity>{
           itemsCount,
           items,
         });
-
         return pagedResponse
+      }
+
+      async pagedRaw(
+        queryBuilder: SelectQueryBuilder<TEntity>,
+        pageNumber: number,
+        pageSize: number
+      ): Promise<PagedModel<any>> {
+        const items = await queryBuilder
+          .offset((pageNumber - 1) * pageSize)
+          .limit(pageSize)
+          .getRawMany();
+    
+        const itemsCount = await queryBuilder.getCount();
+    
+        const pagedResponse = new PagedModel<any>({
+          pageNumber,
+          pageSize,
+          itemsCount,
+          items,
+        });
+    
+        return pagedResponse;
       }
 }

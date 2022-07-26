@@ -11,4 +11,8 @@ export class StateBase{
     @AutoMap()
     @ApiProperty()
     name!:string
+    
+    @AutoMap()
+    @ApiProperty()
+    countryName!:string
 }

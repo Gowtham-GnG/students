@@ -15,8 +15,8 @@ import { UpdateStateController } from "./update-state/update-state.controller";
 
 @Module({
     imports:[DatabaseModule,ConfigModule],
-    controllers:[GetStateController,GetStateListController,CreateStateController,DeleteStateController,UpdateStateController],
-    providers:[GetStateMapper,GetStateListMapper,CreateStateMapper,UpdateStateMapper]
+    controllers:[CreateStateController,GetStateController,GetStateListController,UpdateStateController,DeleteStateController],
+    providers:[CreateStateMapper,GetStateMapper,GetStateListMapper,UpdateStateMapper]
 })
 
 export class StateUseCasesModule{}

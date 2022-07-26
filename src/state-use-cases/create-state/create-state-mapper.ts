@@ -2,7 +2,7 @@ import { AutomapperProfile, InjectMapper } from "@automapper/nestjs";
 import { Inject, Injectable } from "@nestjs/common";
 import { Mapper } from "@automapper/types";
 import { CreateStateRequest } from "./create-state-request";
-import { State } from "libs/database/src/state/state.entity";
+import { State } from "libs/database/src/master-aggregate/state/state.entity";
 import { ignore } from "@automapper/core";
 
 @Injectable()

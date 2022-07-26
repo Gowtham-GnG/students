@@ -1,5 +1,9 @@
-import { State } from "./state/state.entity";
+import { State } from "./master-aggregate/state/state.entity";
+import { Country } from "./master-aggregate/country/country.entity";
+import { District } from "./master-aggregate/district/district.entity";
 
 export default [
-    State
+    Country,
+    State,
+    District
 ]
